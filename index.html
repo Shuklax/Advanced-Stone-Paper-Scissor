@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <div class="main-screen">
+      <header>
+        <div class="scoreboard">
+          <div class="left">
+            <p>
+              ROCK<br />
+              PAPER <br />
+              SCISSORS
+            </p>
+          </div>
+          <div class="right">
+            <div class="score">
+              COMPUTER SCORE
+              <p class="computerScore"></p>
+            </div>
+            <div class="score">
+              YOUR <br />SCORE
+              <p class="yourScore"></p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- playing zone -->
+        <div class="startButtons">
+          <button id="rock" onclick="playGame('rock')">
+            <img
+              class="outer-img"
+              src="./Assets/Group 2.png"
+              alt="Rock-Background"
+            />
+            <img class="inner-img" src="./Assets/Rock-emoji.png" alt="Rock" />
+          </button>
+          <button id="paper" onclick="playGame('paper')">
+            <img
+              class="outer-img"
+              src="./Assets/Group 1.png"
+              alt="Paper-Background"
+            />
+            <img class="inner-img" src="./Assets/Paper-emoji.png" alt="Paper" />
+          </button>
+          <button id="scissors" onclick="playGame('scissors')">
+            <img
+              class="outer-img"
+              src="./Assets/Group 3.png"
+              alt="Scissors-Background"
+            />
+            <img
+              class="inner-img"
+              src="./Assets/Scissors-emoji.png"
+              alt="Scissors"
+            />
+          </button>
+          <div class="linesBetweenButtons">
+            <img id="line1" src="./Assets/Line 1.png" alt="line1">
+            <img id="line2" src="./Assets/Line 2.png" alt="line2">
+            <img id="line3" src="./Assets/Line 3.png" alt="line3">
+          </div>
+        </div>
+        
+
+        <!-- result Zone -->
+        <div class="result-zone">
+          <div class="side">
+            <div class="side-text">YOU PICKED</div>
+            <div class="user-side-icon">
+              <div class="side-icon" id="user-rock">
+                <img src="./Assets/Rock-emoji.png" class="inner">
+                <img src="./Assets/Group 2.png" class="outer">
+                <img class="green-background">
+              </div>
+              <div class="side-icon" id="user-paper">
+                <img src="./Assets/Paper-emoji.png" class="inner">
+                <img src="./Assets/Group 1.png" class="outer">
+                <img class="green-background">
+              </div>
+              <div class="side-icon" id="user-scissors">
+                <img src="./Assets/Scissors-emoji.png" class="inner">
+                <img src="./Assets/Group 3.png" class="outer">
+                <img class="green-background">
+              </div>
+            </div>
+          </div>
+
+          <div class="result">
+            <div class="result-text" id="win-text">YOU WIN</div>
+            <div class="result-text" id="lost-text">YOU LOST</div>
+            <div class="result-text" id="tie-text">TIE UP</div>
+            <div class="sub-text">AGAINST PC</div>
+            <button class="playBtn">PLAY AGAIN</button>
+            <button class="replayBtn">REPLAY</button>
+          </div>
+
+          <div class="side">
+            <div class="side-text">PC PICKED</div>
+            <div class="pc-side-icon">
+              <div class="side-icon" id="pc-rock">
+                <img src="./Assets/Rock-emoji.png" class="inner">
+                <img src="./Assets/Group 2.png" class="outer">
+                <img class="green-background">
+              </div>
+              <div class="side-icon" id="pc-paper">
+                <img src="./Assets/Paper-emoji.png" class="inner">
+                <img src="./Assets/Group 1.png" class="outer">
+                <img class="green-background">
+              </div>
+              <div class="side-icon" id="pc-scissors">
+                <img src="./Assets/Scissors-emoji.png" class="inner">
+                <img src="./Assets/Group 3.png" class="outer">
+                <img class="green-background">
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+
+    <div class="winner-screen">
+      <div class="trophy">
+        <img src="./Assets/trophy.png" alt="trophy image">
+        <img src="./Assets/Star.png" alt="stars" class="stars">
+      </div>
+      <div class="hurrayMsg">HURRAY!!</div>
+      <div class="winMsg">YOU WON THE GAME</div>
+      <button class="winnerPlayBtn">PLAY AGAIN</button>
+    </div>
+
+    <!-- Rules -->
+    <div class="modal-div">  
+      <dialog class="modal" id="modal"> 
+        <button class="close-modal"><img src="./Assets/Ellipse 6.png" alt="close-modal"><span>X</span></button>  
+        <h2>Game Rules</h2>
+              <ul>
+                  <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+                  <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+                  <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+                  <li>If both players lay down the same hand, each player lays down another hand</li>
+              </ul>
+            
+    </div>
+
+  <footer>
+    <button
+      class="reset"
+      onclick="
+        score.wins = 0;
+        score.losses = 0;
+        localStorage.removeItem('score');
+        updateScoreElement();
+        ">RESET
+    </button>
+
+    <div class="bottom-right">
+      <button class="rules open-modal">RULES</button>
+      <button class="next-btn">NEXT</button>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  </body>
+</html>
